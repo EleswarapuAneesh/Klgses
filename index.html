@@ -52,9 +52,35 @@
             justify-content: center;
         }
 
-        nav ul li {
-            list-style: none;
-            margin: 0 23px;
+        nav ul li a {
+            color: #111;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+        color: #0077cc;
+        }
+
+        .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 120px);
+        text-align: center;
+        padding: 40px;
+        }
+
+        .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        }
+
+        .hero p {
+        font-size: 1.2rem;
+        color: #ccc;
         }
     </style>
 </head>
@@ -78,7 +104,11 @@
             </div>
         </nav>
     </header>
-<h1>The Page is Under Construction</h1>
+    
+  <main class="hero">
+    <h1>We're getting things ready...</h1>
+    <p>Our new site is launching soon. Stay tuned.</p>
+  </main>
 </body>
 
 </html>
