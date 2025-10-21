@@ -227,6 +227,133 @@ nav ul li a:hover {
   outline: 2px solid #00b4d8;
 }
 
+/* Popup overlay */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Show state */
+.popup.show {
+  display: flex;
+}
+
+/* Popup box */
+.popup-content {
+  background: #ffffff;
+  color: #333;
+  border-radius: 10px;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: popIn 0.3s ease;
+}
+
+.popup-content h2 {
+  margin-bottom: 10px;
+  color: #0077b6;
+}
+
+.popup-content button {
+  margin-top: 15px;
+  background-color: #0077b6;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.popup-content button:hover {
+  background-color: #005f8f;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive contact form */
+.contact-container {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 20px;
+  background: #f5f9ff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
+}
+
+.contact-container input,
+.contact-container textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+  border-color: #0077b6;
+  outline: none;
+}
+
+.contact-container button {
+  margin-top: 15px;
+  width: 100%;
+  background-color: #0077b6;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-container button:hover {
+  background-color: #005f8f;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .contact-container {
+    margin: 40px 15px;
+    padding: 15px;
+  }
+
+  .contact-container h2 {
+    font-size: 22px;
+  }
+
+  .contact-container input,
+  .contact-container textarea {
+    font-size: 15px;
+  }
+}
 
 /* ====== Footer ====== */
 footer {

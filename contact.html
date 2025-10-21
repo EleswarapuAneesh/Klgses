@@ -45,6 +45,14 @@
     </form>
   </main>
 
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h2>Thank you!</h2>
+      <p>We’ve received your message and will reach out shortly.</p>
+      <button id="close-popup">Close</button>
+    </div>
+  </div>
+
   <footer>
     © 2025 <span>KLG Scientific & Electronic Services</span> — All Rights Reserved
   </footer>
@@ -52,37 +60,37 @@
   <!-- ====== EmailJS Integration ====== -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
-      document.getElementById('contact-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const name = this.name.value.trim();
-        const email = this.email.value.trim();
-        const message = this.message.value.trim();
+      const form = document.querySelector("form");
+      const popup = document.getElementById("popup");
+      const closePopup = document.getElementById("close-popup");
 
-        if (!name || !email || !message) {
-          alert('Please fill all fields');
-          return;
-        }
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
 
         try {
-          const res = await fetch('https://klgses.onrender.com/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, message })
+          const res = await fetch("https://klgses.onrender.com/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message }),
           });
 
-          const data = await res.json();
-          if (res.ok && data.success) {
-            alert('Thanks! Your message was saved.');
-            this.reset();
+          if (res.ok) {
+            popup.classList.add("show");
+            form.reset();
           } else {
-            alert('Failed to save message: ' + (data.error || 'unknown'));
+            alert("Failed to send message.");
           }
         } catch (err) {
+          alert("Error sending message.");
           console.error(err);
-          alert('Error sending message.');
         }
       });
-      </script>
+
+      closePopup.addEventListener("click", () => popup.classList.remove("show"));
+    </script>
 </body>
 
 </html>
