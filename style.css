@@ -89,6 +89,7 @@ nav ul li a:hover {
 }
 
 /* Scroll sections */
+/* Scroll sections */
 .scroll-section {
   min-height: 60vh;
   display: flex;
@@ -97,7 +98,7 @@ nav ul li a:hover {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease-out;
-  padding: 0 10vw;
+  padding: 0 15vw; /* increase side padding slightly for breathing space */
 }
 
 .scroll-section.active {
@@ -107,16 +108,22 @@ nav ul li a:hover {
 
 /* Paragraph styling */
 .scroll-section p {
-  font-size: 1.4rem;
-  line-height: 1.8;
-  max-width: 900px;
+  font-size: 1.5rem; /* slightly bigger */
+  line-height: 2;    /* more spacing between lines */
+  max-width: 700px;  /* narrower block to wrap into multiple lines */
   color: #ccc;
+  margin: 0;         /* remove extra margins for consistent spacing */
 }
 
 /* Zig-zag alignment */
 .scroll-section:nth-child(even) {
   justify-content: flex-end; /* 2nd, 4th etc align right */
   text-align: right;
+}
+
+.scroll-section:nth-child(odd) {
+  justify-content: flex-start; /* 1st, 3rd etc align left */
+  text-align: left;
 }
 
 /* ====== Fade + Slide Animation ====== */
@@ -157,6 +164,67 @@ nav ul li a:hover {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+
+/* ====== Contact Page Styles ====== */
+.contact-container {
+  max-width: 700px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.contact-container h2 {
+  font-size: 2.5rem;
+  color: #00b4d8;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.contact-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.contact-container label {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.contact-container input,
+.contact-container textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #111; /* navbar background for consistency */
+  color: #f5f5f5;
+  width: 100%;
+}
+
+.contact-container textarea {
+  resize: vertical;
+}
+
+.contact-container button {
+  padding: 12px;
+  font-size: 1.1rem;
+  background-color: #00b4d8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-container button:hover {
+  background-color: #0095b6;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+  outline: 2px solid #00b4d8;
 }
 
 

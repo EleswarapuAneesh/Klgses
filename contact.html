@@ -2,45 +2,84 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KLG-SES</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - KLG-SES</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="left">
-                <img src="logo.jpg" alt="Logo">
-                <div class="text">
-                    <div>KLG Scientific & Electronic Services</div>
-                </div>
-            </div>
-            <div class="right">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main class="hero">
-        <!-- <h1>Contact Us</h1> -->
-        <!-- <p>Feel free to reach out to us for any inquiries or support:</p>
-        <p><strong>Email:</strong> info@klgservices.com</p>
-        <p><strong>Phone:</strong> +1 234 567 8900</p> -->
-        <h1> Under construction </h1>
-        <p> Will get it back shortly </p>
-    </main>
+  <header>
+    <nav>
+      <div class="left">
+        <img src="logo.jpg" alt="Logo">
+        <div class="text">KLG Scientific & Electronic Services</div>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <footer>
+  <main class="contact-container">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+
+  <footer>
     © 2025 <span>KLG Scientific & Electronic Services</span> — All Rights Reserved
-    </footer>
+  </footer>
+
+  <!-- ====== EmailJS Integration ====== -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      document.getElementById("contact-form").addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        try {
+          const response = await fetch("https://klgses.onrender.com/send-email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message }),
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            document.getElementById("response-message").innerText = "Message sent successfully!";
+            document.getElementById("contact-form").reset();
+          } else {
+            document.getElementById("response-message").innerText = "Failed to send message: " + result.error;
+          }
+        } catch (err) {
+          document.getElementById("response-message").innerText = "Error sending message. Please try again later.";
+        }
+      });
+    </script>
+
 </body>
 
 </html>
