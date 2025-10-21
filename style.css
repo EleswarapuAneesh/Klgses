@@ -12,6 +12,15 @@ body {
   color: #f5f5f5;
   line-height: 1.6;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding-top: 100px;   /* space for sticky navbar */
+  padding-bottom: 120px; /* space for footer */
 }
 
 /* ====== Navbar ====== */
@@ -49,7 +58,6 @@ nav {
   letter-spacing: 0.5px;
 }
 
-
 nav ul {
   list-style: none;
   display: flex;
@@ -72,34 +80,39 @@ nav ul li a:hover {
 }
 
 /* ====== Hero Section ====== */
-/* Hero */
 .hero {
-  height: 100vh;
+  min-height: calc(100vh - 85px); /* account for nav height */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  padding: 20px;
+  text-align: center;
 }
 
 .hero h1 {
   font-size: 3.5rem;
   color: #00b4d8;
-  text-align: center;
   line-height: 1.2;
-  margin-bottom: 40px; /* smaller gap between heading and first paragraph */
+  margin-bottom: 40px;
 }
 
-/* Scroll sections */
-/* Scroll sections */
+.hero p {
+  max-width: 900px;
+  font-size: 1.1rem;
+  color: #ccc;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* ====== Scroll Sections ====== */
 .scroll-section {
-  min-height: 60vh;
+  padding: 80px 15vw;
   display: flex;
-  justify-content: flex-start; /* default left */
+  justify-content: flex-start;
   align-items: center;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease-out;
-  padding: 0 15vw; /* increase side padding slightly for breathing space */
 }
 
 .scroll-section.active {
@@ -107,23 +120,21 @@ nav ul li a:hover {
   transform: translateY(0);
 }
 
-/* Paragraph styling */
 .scroll-section p {
-  font-size: 1.5rem; /* slightly bigger */
-  line-height: 2;    /* more spacing between lines */
-  max-width: 700px;  /* narrower block to wrap into multiple lines */
+  font-size: 1.5rem;
+  line-height: 2;
+  max-width: 700px;
   color: #ccc;
-  margin: 0;         /* remove extra margins for consistent spacing */
+  margin: 0;
 }
 
-/* Zig-zag alignment */
 .scroll-section:nth-child(even) {
-  justify-content: flex-end; /* 2nd, 4th etc align right */
+  justify-content: flex-end;
   text-align: right;
 }
 
 .scroll-section:nth-child(odd) {
-  justify-content: flex-start; /* 1st, 3rd etc align left */
+  justify-content: flex-start;
   text-align: left;
 }
 
@@ -134,31 +145,12 @@ nav ul li a:hover {
   animation: fadeSlideIn 1s ease forwards;
 }
 
-.delay-1 {
-  animation-delay: 0.3s;
-}
-
-.delay-2 {
-  animation-delay: 0.6s;
-}
-
-.delay-3 {
-  animation-delay: 0.9s;
-}
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 0.9s; }
 
 @keyframes fadeSlideIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero p {
-  max-width: 900px;
-  font-size: 1.1rem;
-  color: #ccc;
-  margin-bottom: 20px;
-  line-height: 1.8;
+  to { opacity: 1; transform: translateY(0); }
 }
 
 [data-aos] {
@@ -166,7 +158,6 @@ nav ul li a:hover {
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
 
 /* ====== Contact Page Styles ====== */
 .contact-container {
@@ -199,14 +190,12 @@ nav ul li a:hover {
   font-size: 1rem;
   border-radius: 6px;
   border: none;
-  background-color: #111; /* navbar background for consistency */
+  background-color: #111;
   color: #f5f5f5;
   width: 100%;
 }
 
-.contact-container textarea {
-  resize: vertical;
-}
+.contact-container textarea { resize: vertical; }
 
 .contact-container button {
   padding: 12px;
@@ -219,16 +208,10 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-.contact-container button:hover {
-  background-color: #0095b6;
-}
+.contact-container button:hover { background-color: #0095b6; }
 
 .contact-container input:focus,
-.contact-container textarea:focus {
-  outline: 2px solid #00b4d8;
-}
-
-
+.contact-container textarea:focus { outline: 2px solid #00b4d8; }
 
 /* ====== Footer ====== */
 footer {
@@ -240,12 +223,6 @@ footer {
   border-top: 1px solid #222;
 }
 
-footer span {
-  color: #00b4d8;
-  font-weight: 600;
-}
-
-
 /* ====== Mobile Responsiveness ====== */
 @media (max-width: 768px) {
   nav {
@@ -255,83 +232,29 @@ footer span {
     padding: 10px 20px;
   }
 
-  .left {
-    gap: 10px;
-  }
+  .left { gap: 10px; margin-bottom: 10px; }
 
-  nav ul {
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  nav ul li a {
-    padding: 10px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-container h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-
-  .contact-container label {
-    font-size: 1rem;
-  }
-
-  .contact-container input,
-  .contact-container textarea {
-    font-size: 0.95rem;
-    padding: 10px;
-  }
-
-  .contact-container button {
-    font-size: 1rem;
-    padding: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-}
-
-/* Navbar right */
-nav .right ul {
-  display: flex;
-  gap: 35px;
-}
-
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto;
-    padding: 10px 20px;
-  }
-
-  .left {
-    gap: 10px;
-    margin-bottom: 10px;
-  }
+  .left .text { font-size: 1rem; }
 
   .right ul {
-    display: flex;
     flex-direction: column;
     gap: 12px;
     width: 100%;
   }
 
-  .right ul li a {
-    padding: 8px 8px;
-    font-size: 1rem;
-  }
+  .right ul li a { padding: 8px 8px; font-size: 0.95rem; }
+
+  .hero { min-height: calc(100vh - 120px); padding: 20px 15px; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+
+  .scroll-section { padding: 60px 10px; }
+}
+
+@media (max-width: 480px) {
+  .contact-container h2 { font-size: 2rem; margin-bottom: 30px; }
+  .contact-container label { font-size: 1rem; }
+  .contact-container input,
+  .contact-container textarea { font-size: 0.95rem; padding: 10px; }
+  .contact-container button { font-size: 1rem; padding: 10px; }
 }
