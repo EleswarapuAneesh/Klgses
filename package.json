@@ -1,0 +1,26 @@
+{
+  "name": "klgses",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EleswarapuAneesh/Klgses.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EleswarapuAneesh/Klgses/issues"
+  },
+  "homepage": "https://github.com/EleswarapuAneesh/Klgses#readme",
+  "dependencies": {
+    "@octokit/rest": "^22.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  }
+}
