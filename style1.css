@@ -1,20 +1,18 @@
-/* ====== Global Reset ====== */
+/* Global */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
-/* ====== Base Style ====== */
 body {
-  font-family: "Inter", sans-serif;
   background-color: #0a0a0a;
   color: #f5f5f5;
-  line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* ====== Navbar ====== */
+/* Navbar */
 nav {
   display: flex;
   justify-content: space-between;
@@ -70,7 +68,6 @@ nav ul li a:hover {
   color: #fff;
 }
 
-/* ====== Hero Section ====== */
 /* Hero */
 .hero {
   height: 100vh;
@@ -117,46 +114,6 @@ nav ul li a:hover {
 .scroll-section:nth-child(even) {
   justify-content: flex-end; /* 2nd, 4th etc align right */
   text-align: right;
-}
-
-/* ====== Fade + Slide Animation ====== */
-.fade-slide {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeSlideIn 1s ease forwards;
-}
-
-.delay-1 {
-  animation-delay: 0.3s;
-}
-
-.delay-2 {
-  animation-delay: 0.6s;
-}
-
-.delay-3 {
-  animation-delay: 0.9s;
-}
-
-@keyframes fadeSlideIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero p {
-  max-width: 900px;
-  font-size: 1.1rem;
-  color: #ccc;
-  margin-bottom: 20px;
-  line-height: 1.8;
-}
-
-[data-aos] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 

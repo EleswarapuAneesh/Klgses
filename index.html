@@ -5,9 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KLG-SES</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -28,20 +25,44 @@
     </nav>
   </header>
 
-  <main class="hero">
-    <h1>Welcome to KLG Scientific and Electronic Services</h1>
-    <p>KLG Scientific and Electronic Services is an independent service organization with engineers who have expertise
-      in Analytical and Mass Spectrometer Instrumentation.</p>
-    <p>We provide high-quality support services for advanced instruments such as IRMS, HR ICPMS, MC ICPMS, NGMS, TIMS,
-      and other analytical and research tools from global manufacturers.</p>
-    <p>Based in Hyderabad, we operate across India, offering maintenance, user training, and turnkey installation
-      support for scientific instrumentation. For any support requirements, please reach out to us via our contact
-      section.</p>
+  <main>
+    <!-- Hero section -->
+    <section class="hero">
+      <h1 id="hero-title">Welcome to KLG Scientific and Electronic Services</h1>
+    </section>
+
+    <!-- Scroll sections -->
+    <section class="scroll-section"><p>KLG Scientific and Electronic Services is an independent service organization with engineers who have expertise in Analytical and Mass Spectrometer Instrumentation.</p></section>
+    <section class="scroll-section"><p>We provide high-quality support services for advanced instruments such as IRMS, HR ICPMS, MC ICPMS, NGMS, TIMS, and other analytical and research tools from global manufacturers.</p></section>
+    <section class="scroll-section"><p>Based in Hyderabad, we operate across India, offering maintenance, user training, and turnkey installation support for scientific instrumentation. For any support requirements, please reach out to us via our contact section.</p></section>
   </main>
 
   <footer>
     © 2025 <span>KLG Scientific & Electronic Services</span> — All Rights Reserved
   </footer>
+
+  <script>
+    // Scroll reveal effect
+    const sections = document.querySelectorAll('.scroll-section');
+
+    function revealSection() {
+      const triggerBottom = window.innerHeight / 1.2;
+
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealSection);
+
+    // Initial reveal
+    revealSection();
+  </script>
 </body>
 
 </html>
